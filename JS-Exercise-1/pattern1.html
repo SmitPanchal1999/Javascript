@@ -1,0 +1,29 @@
+<html>
+<head>
+    </head>
+<body>
+    <script>
+
+        let input=prompt("Write the number of lines(it must be a number >=1):",1);
+        
+        if (isFinite(input) && input>=1){
+            let character="* "; //just change the character if you want
+            let i,j;
+            let temp;
+            for(i=1;i<=input;i++){
+                temp=""
+                for(j=1;j<=i;j++){
+                    temp+=character
+
+                }
+                console.log(temp)
+            }
+        }
+        else{
+            alert("Please write a number and it must be >=1");
+        }
+
+
+        </script> 
+    </body>
+</html>

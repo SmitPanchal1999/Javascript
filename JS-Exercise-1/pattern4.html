@@ -1,0 +1,67 @@
+<html>
+<head>
+    <script type="text/javascript" src="./math.js"></script>
+     </head>
+<body>
+    <script type="text/javascript">
+        let input=prompt("Write the number of lines(it must be a number >=1):",1);
+        
+        if (isFinite(input) && input>=1){
+            let character="* "; //just change the character if you want
+            let space="  "; //you can also put a character here 
+            let i,j;
+            let temp1,temp2,temp3;
+            let check;
+            if (input%2==1){
+                
+                check=(math.floor(input/2 ) + 1)
+            }
+            else{
+                check=-1
+            }
+
+            let c1,c2,c3;
+            for(i=1;i<=input;i++){
+                temp1="";
+                temp2=""; 
+                temp3="";
+               
+                if (i<=(input-i+1)){
+                    first=i;
+                    second=input-i+1;
+                }
+                else{
+                    first=input-i+1;
+                    second=i;
+                }
+                
+                for (j=1;j<first;j++){
+                    temp1+=space;
+           
+                }
+                
+                for (j=first+1;j<second;j++){
+                        temp2+=space;
+                
+            
+                    }
+                for (j=second+1;j<=input;j++){
+                 
+                    temp3+=space;
+                }
+              
+                if (check==i ){
+                    console.log(temp1+character+temp3);
+                }
+                else{
+                    console.log(temp1+character+temp2+character+temp3);
+                }
+            }
+        }
+        else{
+            alert("Please write a number and it must be >=1");
+        }
+
+        </script> 
+    </body>
+</html>
