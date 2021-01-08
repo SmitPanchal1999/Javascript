@@ -1,0 +1,27 @@
+<html>
+<head>
+</head>
+<body>
+    <script>
+        
+        const input=String(prompt("Enter a string","hello"));
+        const input_length=Number(prompt("enter a number:",1));
+        
+        let array=[]
+        let temp="";
+        let c=0;        
+        for(let i=0;i<input.length;i++){
+            if (c==(input_length)){
+                array.push(temp);
+                c=0;
+                temp="";
+            }
+            temp+=input[i];
+            c+=1
+            
+        }
+        
+        alert(array);
+        </script>
+</body>
+</html>

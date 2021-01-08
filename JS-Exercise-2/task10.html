@@ -1,0 +1,72 @@
+<html>
+<head>
+</head>
+<body>
+    <script>
+        const input=String(prompt("Enter two dates : ","01-01-1999","02-01-1999"));
+
+        let dates=String(input.split("&"));
+        let date1=""
+        let date2=""
+        let month1=""
+        let month2=""
+        let year1=""
+        let year2=""
+        let check=0;
+        alert(dates);
+        for (let i=0;i<dates.length;i++){
+            if( dates[i]=="/" || dates[i]=="-" || dates[i]==","){
+                check+=1;
+
+            }
+            else if (check==0){
+                date1+=dates[i]
+            }
+            else if (check==1){
+                month1+=dates[i]
+            }
+            else if (check==2){
+                year1+=dates[i]
+            }
+            else if (check==3){
+                date2+=dates[i];
+            }
+            else if (check==4){
+                month2+=dates[i];
+            }
+            else if  (check==5){
+                year2+=dates[i];
+            }
+            
+        }
+      
+        let Date1=new Date(month1+"/"+date1+"/"+year1);
+        let Date2=new Date(month2+"/"+date2+"/"+year2);
+       let diff= Date2.getTime()-Date1.getTime();
+       if (diff<0){
+           diff=(-1)*diff
+       }
+       let days =diff/(1000*3600*24);
+       let temp=days;
+       let years=Math.floor(days/365)
+       days=days-years*365
+       let months=Math.floor(days/30)
+       days=days-months*30
+
+       let temp1=temp
+       let smonth=Math.floor(temp1/30)
+       temp1=temp1-temp;
+       
+       let temp2=temp ;
+       
+       let temp3=temp;
+       let tdays=temp3*24;
+
+       let temp4=temp;
+       let min=temp4*60
+
+
+        console.log("Difference between two dates is "+years+" years "+months+" Months " +days+" days \n"+"or "+smonth+" months "+temp1+" days \n or "+temp2+" days \n or "+tdays+" hours\n or "+min+" minutes");
+        </script>
+</body>
+</html>

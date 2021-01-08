@@ -1,0 +1,16 @@
+<html>
+<head>
+</head>
+<body>
+    <script>
+        
+        let string="This is sample string";
+        const input=String(prompt("Enter a string","hello"));
+        const input_pos=Number(prompt("enter a number:",1));
+        
+        string=string.slice(0,input_pos-1)+input+string.slice(input_pos-1)
+
+        alert(string)
+        </script>
+</body>
+</html>

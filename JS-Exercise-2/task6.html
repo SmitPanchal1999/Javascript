@@ -1,0 +1,60 @@
+<html>
+<head>
+</head>
+<body>
+    <script>
+        let start=prompt("Enter starting character of number :",1);
+        let end=prompt("Enter ending character or number :",5);
+        const diff=Number(prompt("Enter the jump :",1));
+        let ans=[];
+        if (isFinite(start)){
+            start=Number(start)
+            end=Number(end);
+            if (start<=end){
+
+                for(let i=start;i<=end;i=i+diff){
+                    
+                    ans.push(i);
+
+                }
+            }
+
+            else{
+                for(let i=start;i>=end;i=i-diff){
+                    ans.push(i)
+
+                }
+
+
+            }
+        }
+        else{
+            end=end.codePointAt(0)
+            start=start.codePointAt(0)
+            if (start<=end){
+
+                for(let i=start;i<=end;i=i+diff){
+                       
+                        ans.push(String.fromCodePoint(i));
+                        
+                }
+
+            }
+
+            else{
+                for(let i=start;i>=end;i=i-diff){
+    
+                        ans.push(String.fromCodePoint(i));
+
+                }
+
+
+            }
+
+
+        }
+        alert(ans); 
+
+    </script>
+</body>
+</html>

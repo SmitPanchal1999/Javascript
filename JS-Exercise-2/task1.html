@@ -1,0 +1,18 @@
+<html>
+<head>
+</head>
+<body>
+    <script>
+        // Write​ ​ a ​ ​ JavaScript​ ​ function​ ​ to​ ​ get​ ​the​ ​ first​ ​ and​ ​ last​ ​ element​ ​ of​ ​ an​ ​ array.
+        //​ ​ Passing​ ​ a parameter​ ​ 'n'​ ​ will​ ​ return​ ​ the​ ​ first​ ​ 'n'​ ​ elements​ ​ of​ ​ the​ ​ array​ ​ and​ ​last​ ​ ‘n’​ ​ elements​ ​ of​ ​ the array.
+        const array=[0,1,2,3,4,5,6,7,8,9]
+        const input=prompt("Enter a number",1);
+
+        let firstn=array.slice(0,(+input));
+        let lastn=array.slice(-(+input),array.length);
+        alert(firstn);
+        alert(lastn);
+
+        </script>
+</body>
+</html>

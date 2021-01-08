@@ -1,0 +1,38 @@
+<html>
+<head>
+</head>
+<body>
+    <script>
+        function compareAge( a, b ) {
+        if ( a.age < b.age ){
+        return -1;
+        }
+        if ( a.age> b.age ){
+        return 1;
+        }
+        return 0;
+    }
+
+  function compareName( a, b ) {
+    if ( a.name > b.name ){
+      return -1;
+    }
+    if ( a.name< b.name ){
+      return 1;
+    }
+    return 0;
+  }
+        
+       let array=[{id:1,name:"abc",age:20},
+       {id:2,name:"hello",age:14},{id:3,name:"bcsfak",age:34},{id:4,name:"romsb",age:94},{id:5,name:"zbbdf",age:54},
+       {id:6,name:"cjbv",age:43},{id:7,name:"chvj",age:33},{id:8,name:"wuigq",age:73},{id:9,name:"ocvga",age:32},{id:10,name:"cbhhva",age:11}
+    ];
+        
+    array.sort( compareAge);
+  console.log(array);
+  array1.sort( compareName);
+ console.log(array);
+
+        </script>
+</body>
+</html>

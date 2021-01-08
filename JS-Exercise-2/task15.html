@@ -1,0 +1,83 @@
+<html>
+<head>
+</head>
+<body>
+    <script>
+        
+       let array=[{name:  "Jack" , age : 23}, {name:  "Sam" , age : 12},  {name:  "Max" , age : 20} ];
+        let flag=0;
+        console.log(array);
+        
+        let insert_name;
+           let insert_age;
+           let insert_pos;
+           let input;
+
+           let delete_pos;
+           let user;
+       while (flag==0){
+           input=Number(prompt("Enter 0 if you want to insert ,1 if you want to delete or 2 to exit :",1));
+           switch(input){
+               case 0: {
+                    insert_pos=prompt("Enter insert position:");
+                   insert_name=String(prompt("Enter insert Name:"));
+                   insert_age=Number(prompt("Enter insert age:"));
+                    if (insert_pos==array.length){
+                         user={
+                            name:insert_name,
+                            age:insert_age
+                        }
+                        array.splice(insert_pos,0,user);
+                        alert(array);
+                    }
+                    else if (insert_pos<array.length && insert_pos>=0){
+                        user={
+                            name:insert_name,
+                            age:insert_age
+                        }
+                        array.splice(insert_pos,0,user);
+                        console.log(array);
+                    }
+                    else{
+                        alert("Enter valid insert position.");
+                        alert(array);
+                    }
+                   
+                   break;
+               }
+               case 1:{
+                   delete_pos=prompt("Enter delete position:");
+                   if (delete_pos==array.length-1 && array.length>=1){
+                        array.length=array.length-1
+                        alert(array);
+                   }
+                   else if (delete_pos>=0 && delete_pos<array.length-1 && array.length>=1){
+                        
+                        array.splice(delete_pos,1);
+                        alert(array);
+
+                   }
+                   else if (array.length==0){
+                       alert("array is empty cant delete");
+                       alert(array);
+                    }
+                   else{
+                       alert("Enter a proper delete position");
+                       alert(array);
+                    }
+
+                   break;
+               }
+               case 2:{
+                   flag=1
+                   break;
+               }
+               default:{
+                   alert("Enter valid number");
+               }
+           }
+       }
+               
+        </script>
+</body>
+</html>

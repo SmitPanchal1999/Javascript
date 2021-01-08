@@ -1,0 +1,16 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+            const input=prompt("Enter timestamp : ")
+            function Unix_timestamp(input)
+            {
+                let date = new Date(input * 1000); 
+                let utc = date.toUTCString(); 
+                return utc
+            }
+            alert(Unix_timestamp(input));
+        </script>
+    </body>
+</html>

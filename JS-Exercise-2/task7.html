@@ -1,0 +1,67 @@
+<html>
+<head>
+</head>
+<body>
+    <script>
+        const input=String(prompt("Enter the date : ","01-01-1999"));
+        let month="";
+        let check=0;
+        for(let i=0;i<input.length;i++){
+            if( input[i]=="/" || input[i]=="-"){
+                check+=1;
+
+            }
+            else if(check==1){
+                month+=(input[i]);
+            }
+            else if(check==2){
+                break;
+            }
+        }
+        month=Number(month);
+        let ans;
+        switch(month){
+            case 1:
+                ans="January";
+                break;
+            case 2: 
+                ans="February";
+                break; 
+            case 3:
+                ans="March";
+                break; 
+            case 4:
+                ans="April";
+                break; 
+            case 5:
+                ans="May";
+                break;
+            case 6: 
+                ans="June";
+                break;
+            case 7: 
+                ans="July"; 
+                break;
+            case 8: 
+                ans="August";
+                break ;
+            case 9: 
+                ans="September"; 
+                break
+            case 10: 
+                ans="October"; 
+                break ;
+            case 11: 
+                ans="November"; 
+                break; 
+            case 12:
+                ans="December";
+                break; 
+            default: 
+                ans="Enter valid Month";
+                break;
+        }
+        alert(ans);
+        </script>
+</body>
+</html>

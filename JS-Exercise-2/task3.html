@@ -1,0 +1,32 @@
+<html>
+<head>
+</head>
+<body>
+    <script>
+        // Write​ ​ a ​ ​ JavaScript​ ​ program​ ​ to​ ​ find​ ​ the​ ​ most​ ​frequent​ ​ item​ ​ of​ ​ an​ ​ array.
+        const array=[0,1,1,2,3,4,5,5,5,6,7,7,8]
+        let obj={}
+     
+        console.log(array);
+        for(let i=0;i<array.length;i++){
+            obj[array[i]]=0
+        }
+        for(let i=0;i<array.length;i++){
+            obj[array[i]]+=1
+        }
+        console.log(obj); // object 
+        let m=-1;
+        let ans;
+        for (let key in obj){
+            if (obj[key]>m){
+                m=obj[key];
+                ans=key;
+            }          
+        }
+        console.log("Most frequent item of the array is : "+ans+" with "+m+" frequencies");
+           
+        
+
+        </script>
+</body>
+</html>

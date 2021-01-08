@@ -1,0 +1,18 @@
+<html>
+<head>
+</head>
+<body>
+    <script>
+        
+        let input=String(prompt("Enter a string",1234));
+        let putComma=[];
+        for (let i=input.length-4;i>=0;i-=3){
+            putComma.push(i)
+        }
+        for (let i=0;i<putComma.length;i++){
+            input=input.slice(0,putComma[i]+1)+","+input.slice(putComma[i]+1)
+        }
+        alert(input )
+        </script>
+</body>
+</html>

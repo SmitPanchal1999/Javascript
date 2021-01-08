@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+    <script>
+        //Write​ ​ a ​ ​ JavaScript​ ​ program​ ​ which​ ​ accepts​ ​ a ​ ​ number​​ as​ ​ input​ ​ and​ ​ insert​ ​ dashes​ ​ (-) between​ ​ each​ ​ two​ ​ even​ ​ numbers.
+        const input=String(prompt("Enter a number",1));
+        
+        let output=""
+        const dash="-"
+        for(let i=0;i<input.length-1;i++){
+            if (input[i]%2==0 && input[i+1]%2==0){
+                output=output+input[i]+dash
+            }
+            else{
+            output+=input[i]
+            }
+        }
+        output+=input[input.length-1]
+        alert(output);
+
+
+        </script>
+</body>
+</html>
