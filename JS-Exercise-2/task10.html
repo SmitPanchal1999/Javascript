@@ -58,7 +58,9 @@
        temp1=temp1-temp;
        
        let temp2=temp ;
-       
+       let temp5=temp;
+       let weeks=Math.floor(temp5/7);
+       let weekdays=temp5-weeks*7
        let temp3=temp;
        let tdays=temp3*24;
 
@@ -66,7 +68,7 @@
        let min=temp4*60
 
 
-        console.log("Difference between two dates is "+years+" years "+months+" Months " +days+" days \n"+"or "+smonth+" months "+temp1+" days \n or "+temp2+" days \n or "+tdays+" hours\n or "+min+" minutes");
+        console.log("Difference between two dates is "+years+" years "+months+" Months " +days+" days \n"+"or "+smonth+" months "+temp1+" days \n or "+weeks+" weeks and "+weekdays+" days \n or "+temp2+" days \n or "+tdays+" hours\n or "+min+" minutes");
         </script>
 </body>
 </html>
