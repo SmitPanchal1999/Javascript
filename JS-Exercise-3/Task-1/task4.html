@@ -1,0 +1,50 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            function createTable(tableArray,rows,columns){
+                let table=document.createElement('table');
+                let row=table.insertRow();;
+                row.insertCell(0).innerHTML="";
+                  
+                for(let i=1;i<columns+1;i++){
+                    row.insertCell(i).innerHTML=`Column-${i-1}`;
+                  
+                }
+                for(let i=0;i<rows;i++){
+                    row=table.insertRow();
+                    row.insertCell(0).innerHTML=`Row-${i}`;
+                    
+                    for (let j=1;j<columns+1;j++){
+                        row.insertCell(j).innerHTML=tableArray[i][j-1]
+                    }
+                }
+               
+                table.style.border="1px solid black";
+                
+                let body=document.getElementsByTagName("body")[0];
+                body.appendChild(table);
+                
+
+            }
+
+            const rows=+prompt("Enter number of rows:",2);
+            const columns=+prompt("Enter number of columns:",2);
+            let table=[];
+            for (let i=0,innerRows;i<rows;i++){
+                innerRows=[]
+                for (let j=0,num;j<columns;j++){
+                    num=prompt(`Enter number of Row-${i} Column-${j}`);
+                    innerRows.push(num);
+                }
+                table.push(innerRows);
+            }
+            console.table(table);
+            createTable(table,rows,columns);
+            
+        
+
+        </script>
+    </body>
+
+</html>

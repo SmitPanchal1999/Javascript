@@ -1,0 +1,25 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            const input=prompt("Enter a string with html tags","<p><strong><em>Javascript Exercises</em></strong></p>");
+            let arrayInput=Array.from(input);
+            console.log(arrayInput);
+            let output="";
+            for(let i=0,flagTake=0;i<arrayInput.length;i++){
+                if (arrayInput[i]=="<"){
+                    flagTake=1
+                }
+                else if (arrayInput[i]==">"){
+                    flagTake=0
+                }
+                if (flagTake==0 && (arrayInput[i]!=">" && arrayInput[i]!="<")){
+                    output+=arrayInput[i]
+                }
+            }
+            alert(output);
+
+        </script>
+    </body>
+
+</html>

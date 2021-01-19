@@ -1,0 +1,21 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            function validateEmail(checkEmail){      
+                var emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+                return emailPattern.test(checkEmail); 
+            } 
+      
+            const input=prompt("Enter a email","abcdef@mail.com");
+            if (validateEmail(input)){
+                alert("Valid email:)");
+            }
+            else{
+                alert("Invalid email:(");
+            }
+
+        </script>
+    </body>
+
+</html>

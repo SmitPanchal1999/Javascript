@@ -1,0 +1,48 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            function validateEmail(checkEmail){      
+                var emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+                return emailPattern.test(checkEmail); 
+            } 
+            function hideEmail(email,start,length,atPosition){
+                if ((atPosition-start)<(length-1) || start>atPosition){
+                    return "Invalid length and start";
+                }
+                else{
+                    let hiddenEmail=email.slice(0,start);
+                    for (let i=0;i<length;i++){
+                        hiddenEmail+="*"
+                    }
+                
+                    
+                    hiddenEmail+=email.slice(length+start);
+                    return hiddenEmail;
+                }
+            }
+            const input=prompt("Enter a email","abcdef@mail.com");
+            if (validateEmail(input)){
+                let mark;
+                for(let i=0;i<input.length;i++){
+                    if (input[i]=="@"){
+                        mark=i;
+                        break;
+                    }
+                }
+                const start=+prompt("Enter the position from where you want start the hiding characters of the email:",0);
+                const length=+prompt("Enter how many characters you want to hide:",1);
+                
+                alert(hideEmail(input,start,length,mark-1));
+                
+                
+
+            }
+            else{
+                alert("Please enter a valid email");
+            }
+
+        </script>
+    </body>
+
+</html>
