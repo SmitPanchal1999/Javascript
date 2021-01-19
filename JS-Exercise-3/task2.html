@@ -1,0 +1,34 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            const array=[{Name:"Ravindra",Sports:["Chess","Cricket"]},{Name:"Ravi",Sports:["Football","Cricket"]},{Name:"Rishabh",Sports:["Table-Tennis","Football"]}]
+            let output=[];
+            let obj={};
+            for (let i=0;i<array.length;i++){
+                for(let j=0;j<array[i].Sports.length;j++){
+                    if (obj[array[i].Sports[j]]==undefined){
+                        obj[array[i].Sports[j]]=[]
+                        obj[array[i].Sports[j]].push(array[i].Name)
+                        
+                    }        
+                    else{
+                        obj[array[i].Sports[j]].push(array[i].Name)
+                        
+                    }
+                }
+
+            }
+            let newObj;
+            for(let [key,value] of Object.entries(obj)){
+                newObj={};
+                newObj[key]=[];
+                newObj[key]=value;
+                output.push(newObj);
+            }
+            console.log(output);
+
+
+        </script>
+    </body>
+</html>
