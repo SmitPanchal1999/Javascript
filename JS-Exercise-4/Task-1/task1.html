@@ -1,0 +1,45 @@
+<html>
+<head>
+    
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="style.css">  
+</head>
+
+<body onload="callTimeDate()">
+    <div class="container-fluid no-padding">
+        <div class="container text-center" style="height: 100%;">
+            <div class="centerIt">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-auto">
+                <button class="btn-lg" ><span style="font-weight:500;color: green;">Time :&nbsp;&nbsp;</span><span id="showTime" style="color: red;"></span></button>
+                <button class="btn-lg"><span style="font-weight:500;color: blue;">Date :&nbsp;&nbsp;</span><span id="showDate" style="color:#ff8000;"></span></button>
+                <br>
+                </div>
+            </div>
+            <div class="row justify-content-center" style="margin-top: 20px;margin-bottom: 20px;">
+                <div class="col-md-auto">
+                <span style="font-size: 30px; ">Stopwatch<span style="color: crimson;">=</span><span style="color: darkblue;">></span></span>
+                <span id="stopwatch" style="font-size: 30px;"></span>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-auto">
+                <div class="d-flex justify-content-center">
+                <button class="btn btn-success btn-lg" onclick="start()" id="start" style="margin-right:20px;border: 2px solid green;">Start</button>
+                <button class="btn btn-danger btn-lg" onclick="stop()" id="stop" style="margin-right:20px;border: 2px solid red;" disabled>Stop</button>
+                <button class="btn btn-primary btn-lg" onclick="resume()" id="resume" style="margin-right:20px;border: 2px solid #0066ff;" disabled>Resume</button>
+                <button class="btn btn-warning btn-lg" onclick="reset()" id="reset" style="color:white;border: 2px solid orange;" disabled>Reset</button>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <script src="./stopWatch.js"></script>  
+</body>
+
+</html>
