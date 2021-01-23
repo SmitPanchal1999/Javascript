@@ -9,12 +9,14 @@ if (result==undefined){
     let box1=document.getElementById("box1");
     box1.innerHTML="Click Me First";
 }
-changeColor("right");
+
 }
 
 function printBox3(){
     let box3=document.getElementById("box3");
     box3.innerHTML="Oops,something is wrong";
+    changeColor("right");
+    setInterval(changeColor,5000);
 }
 let count=0;
 function getColor(currentColor){
@@ -50,7 +52,7 @@ function changeColor(){
     
 }
 
-setInterval(changeColor,5000);
+
 
 document.addEventListener('keyup', (e) => {
     console.log("key pressed");
