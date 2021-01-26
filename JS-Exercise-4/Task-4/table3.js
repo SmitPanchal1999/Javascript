@@ -93,6 +93,8 @@ function add() {
     const table = document.getElementById("table");
     const fname = document.getElementById("firstName");
     const lname = document.getElementById("lastName");
+    fname.value=fname.value.replace(/\s+/g, ' ').trim();
+    lname.value=lname.value.replace(/\s+/g, ' ').trim();
     if (fname.value == "" || lname.value == "") {
         alert("Please enter first name and last name")
     }
