@@ -15,7 +15,7 @@ if (result==undefined){
 function printBox3(){
     let box3=document.getElementById("box3");
     box3.innerHTML="Oops,something is wrong";
-    changeColor("right");
+   
     setInterval(changeColor,5000);
 }
 let count=0;
