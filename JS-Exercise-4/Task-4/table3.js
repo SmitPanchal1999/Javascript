@@ -14,6 +14,8 @@ function editRow(index) {
         table.rows[i].cells[3].innerHTML = `<button style="background-color:#66ff66;color:white" disabled>Edit</button>`;
         table.rows[i].cells[4].innerHTML = `<button class='deleteButton' disabled=true style="background-color:#ff8080;color:white">Delete</button>`;
     }
+    
+    document.getElementById("deleteSelected").disabled=true;
 }
 function update() {
 
@@ -40,8 +42,9 @@ function update() {
             table.rows[i].cells[3].innerHTML = `<button onclick="editRow(this.parentNode.parentNode.rowIndex)" style="background-color:green;color:white">Edit</button>`;
             table.rows[i].cells[4].innerHTML = `<button style="background-color:red;color:white" onclick="deleteRow(this.parentNode.parentNode.rowIndex)">Delete</button>`;
         }
-        console.log(cells[4].innerHTML);
+        
     }
+    document.getElementById("deleteSelected").disabled=false;
 }
 function cancelUpdate() {
     document.getElementById("firstName").value = "";
@@ -54,24 +57,32 @@ function cancelUpdate() {
         table.rows[i].cells[3].innerHTML = `<button style="background-color:green;color:white" onclick="editRow(this.parentNode.parentNode.rowIndex)" >Edit</button>`;
         table.rows[i].cells[4].innerHTML = `<button style="background-color:red;color:white" onclick="deleteRow(this.parentNode.parentNode.rowIndex)">Delete</button>`;
     }
-    console.log(cells[4].innerHTML);
+
+    document.getElementById("deleteSelected").disabled=false;
 }
 function deleteRow(index) {
     let table = document.getElementById("table");
 
-    for (let key of Object.keys(checked)) {
-        table.rows[key].cells[0].innerHTML = `<input type="checkbox" onclick="checkedItems(this.parentNode.parentNode.rowIndex)"/>`
-
+    
+   
+    document.getElementById("totalSelected").innerHTML = 0;
+   
+    console.log(index);
+    table.deleteRow(index);
+    table=document.getElementById("table");
+    names.splice(index, 1);
+    console.log(names);
+    checked = {};
+    console.log(table.rows.length)
+    for (let i = 0; i < table.rows.length; i++) {
+        console.log(i,table.rows[i].cells[0].children[0].checked)
+        if (table.rows[i].cells[0].children[0].checked) {
+            checked[i] = 1;
+        }
 
 
     }
-    checked = {};
-    document.getElementById("totalSelected").innerHTML = 0;
-    document.getElementById("selectAll").checked = false;
-    console.log(index);
-    table.deleteRow(index);
-    names.splice(index, 1);
-    console.log(names);
+    console.log(checked);
     document.getElementById("totalSelected").innerHTML = Number(Object.keys(checked).length);
     if (document.getElementById("totalSelected").innerHTML >= 1) {
         console.log("true");
@@ -88,13 +99,18 @@ function deleteRow(index) {
     else {
         document.getElementById("selectAllSpan").style.display = "none";
     }
+    if (document.getElementById("table").rows.length == Number(Object.keys(checked).length)) {
+        document.getElementById("selectAll").checked = true;
+    }
+    else {
+        document.getElementById("selectAll").checked = false;
+
+    }
 }
 function add() {
     const table = document.getElementById("table");
     const fname = document.getElementById("firstName");
     const lname = document.getElementById("lastName");
-    fname.value=fname.value.replace(/\s+/g, ' ').trim();
-    lname.value=lname.value.replace(/\s+/g, ' ').trim();
     if (fname.value == "" || lname.value == "") {
         alert("Please enter first name and last name")
     }
@@ -153,6 +169,13 @@ function add() {
     if (table.rows.length >= 1) {
         document.getElementById("selectAllSpan").style.display = "inline-block";
     }
+    if (document.getElementById("table").rows.length == Number(Object.keys(checked).length)) {
+        document.getElementById("selectAll").checked = true;
+    }
+    else {
+        document.getElementById("selectAll").checked = false;
+
+    }
 
 
 }
@@ -163,17 +186,18 @@ function selectAll() {
 
 
         for (let i = 0; i < rows.length; i++) {
-            rows[i].cells[0].innerHTML = `<input type="checkbox" onclick="checkedItems(this.parentNode.parentNode.rowIndex)" checked/>`
-            if (checked[i] == undefined) {
-                checked[i] = 1
-            }
+            rows[i].cells[0].children[0].checked=false;
+            checked[i] = 1
+            
 
 
         }
         document.getElementById("totalSelected").innerHTML = rows.length;
     } else {
-        for (let i = 0; i < rows.length; i++) {
-            rows[i].cells[0].innerHTML = `<input type="checkbox" onclick="checkedItems(this.parentNode.parentNode.rowIndex)"/>`
+        for (let i = 0; i < rows.length; i++) {     
+           rows[i].cells[0].children[0].checked=false;
+
+
 
 
 
@@ -200,14 +224,22 @@ function selectAll() {
     else {
         document.getElementById("selectAllSpan").style.display = "none";
     }
+    if (document.getElementById("table").rows.length == Number(Object.keys(checked).length)) {
+        document.getElementById("selectAll").checked = true;
+    }
+    else {
+        document.getElementById("selectAll").checked = false;
+
+    }
 }
 
 function checkedItems(index) {
-    if (checked[index] == undefined) {
+    let rows=document.getElementById("table").rows;
+    if (rows[index].cells[0].children[0].checked) {
         checked[index] = 1;
     }
-    else if (checked[index] == 1) {
-        document.getElementById("selectAll").checked = false;
+    else{
+        
         delete checked[index];
 
     }
@@ -216,17 +248,25 @@ function checkedItems(index) {
     if (document.getElementById("totalSelected").innerHTML >= 1) {
         console.log("true");
         document.getElementById("showSelected").style.display = "inline-block";
+      
     }
     else {
         console.log("true");
         document.getElementById("showSelected").style.display = "none";
-
+       
     }
     if (table.rows.length >= 1) {
         document.getElementById("selectAllSpan").style.display = "inline-block";
     }
     else {
         document.getElementById("selectAllSpan").style.display = "none";
+    }
+    if (document.getElementById("table").rows.length == Number(Object.keys(checked).length)) {
+        document.getElementById("selectAll").checked = true;
+    }
+    else {
+        document.getElementById("selectAll").checked = false;
+
     }
 }
 function deleteSelected() {
@@ -264,5 +304,12 @@ function deleteSelected() {
     }
     else {
         document.getElementById("selectAllSpan").style.display = "none";
+    }
+    if (document.getElementById("table").rows.length == Number(Object.keys(checked).length)) {
+        document.getElementById("selectAll").checked = true;
+    }
+    else {
+        document.getElementById("selectAll").checked = false;
+
     }
 }
