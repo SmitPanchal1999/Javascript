@@ -23,6 +23,8 @@ const names=["Ashish Shah",
     "Kartik Koli",
     "Komal Jain",
     "Kartikey Pandey"]
+
+
 function searchNamesWith(){
   
     let search=document.getElementById("search");
@@ -31,10 +33,11 @@ function searchNamesWith(){
     
     let searchWords=search.value.replace(/\s+/g, ' ').trim();
     console.log(searchWords);
-    if (searchWords.length<2){
-        result.innerHTML="";
-        return 
-    }
+    if (searchWords.length>=2){
+        
+        let msg=document.getElementById("showMsg");
+        msg.innerHTML="";
+        
     result.innerHTML="";
     names.forEach((name)=>{
         let index=Number(String(name.toLowerCase()).indexOf(searchWords.toLowerCase()));
@@ -44,5 +47,21 @@ function searchNamesWith(){
             result.innerHTML+= `<p><span>${name.slice(0,index)}</span><span style="color: black;font-weight: 500;background-color: yellow;">${name.slice(index,index+searchWords.length)}</span><span>${name.slice(index+searchWords.length)}</span></p>`
         }
     })
+}
+else{
+        let msg=document.getElementById("showMsg");
+        msg.innerHTML="Write atleast two characters";
+        printAllNames();
+}
 
+}
+
+function printAllNames(){
+    let result=document.getElementById("showSearchResult");
+    let msg=document.getElementById("showMsg");
+    msg.innerHTML="Write atleast two characters";
+    result.innerHTML="";
+    names.forEach((name)=>{
+        result.innerHTML+=`<p>${name}</p>`;
+    })
 }
