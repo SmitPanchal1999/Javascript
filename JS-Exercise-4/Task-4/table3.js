@@ -186,7 +186,7 @@ function selectAll() {
 
 
         for (let i = 0; i < rows.length; i++) {
-            rows[i].cells[0].children[0].checked=false;
+            rows[i].cells[0].children[0].checked=true;
             checked[i] = 1
             
 
